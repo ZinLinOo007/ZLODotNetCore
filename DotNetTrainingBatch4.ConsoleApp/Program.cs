@@ -2,6 +2,7 @@
 using DotNetTrainingBatch4.ConsoleApp;
 using System.Data;
 using System.Data.SqlClient;
+using ZLODotNetCore.ConsoleApp;
 
 
 //Ctr + . => suggestion
@@ -44,10 +45,13 @@ using System.Data.SqlClient;
 //AdoDoetNet Read
 //CRUD
 
-AdoDotNetExample example = new AdoDotNetExample();
+//AdoDotNetExample example = new AdoDotNetExample();
 //example.Read();
 //example.Creat("Test Title", "Test Author", "Test Content");
 //example.Update(12, "Title", "Author", "Content");
 //example.Delete(13);
-example.Edit(13);
-example.Edit(1);
+//example.Edit(13);
+//example.Edit(1);
+
+DapperExample dapperExample = new DapperExample();
+dapperExample.Run();
