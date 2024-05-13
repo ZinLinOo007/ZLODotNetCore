@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ZLODotNetCore.ConsoleApp
+namespace ZLODotNetCore.ConsoleApp.Services
 {
     internal static class ConnectionString
     {
@@ -15,9 +15,10 @@ namespace ZLODotNetCore.ConsoleApp
             DataSource = "ZLO\\ZLO",
             InitialCatalog = "DotNetTrainingBatch4",
             UserID = "sa",
-            Password = "015427"
+            Password = "015427",
+            TrustServerCertificate = true
 
         };
-        
+
     }
 }

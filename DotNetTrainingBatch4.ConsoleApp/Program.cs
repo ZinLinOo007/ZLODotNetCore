@@ -2,7 +2,7 @@
 using DotNetTrainingBatch4.ConsoleApp;
 using System.Data;
 using System.Data.SqlClient;
-using ZLODotNetCore.ConsoleApp;
+using ZLODotNetCore.ConsoleApp.EFCoreExamples;
 
 
 //Ctr + . => suggestion
@@ -53,5 +53,8 @@ using ZLODotNetCore.ConsoleApp;
 //example.Edit(13);
 //example.Edit(1);
 
-DapperExample dapperExample = new DapperExample();
-dapperExample.Run();
+//DapperExample dapperExample = new DapperExample();
+//dapperExample.Run();
+
+EFCoreExample eFCoreExample = new EFCoreExample();
+eFCoreExample.Run();

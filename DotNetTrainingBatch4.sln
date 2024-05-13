@@ -8,6 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Document", "Document", "{25C10EF8-D965-402E-881C-2BAB1D7166E4}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
+		ZLODotNetCore.sql = ZLODotNetCore.sql
 	EndProjectSection
 EndProject
 Global

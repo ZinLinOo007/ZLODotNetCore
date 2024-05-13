@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Reflection.Metadata;
 
-namespace DotNetTrainingBatch4.ConsoleApp
+namespace ZLODotNetCore.ConsoleApp.AdoDotNetExamples
 {
     internal class AdoDotNetExample
     {
@@ -20,16 +20,16 @@ namespace DotNetTrainingBatch4.ConsoleApp
         };
         public void Read()
         {
-        //SqlConnectionStringBuilder stringBuilder = new SqlConnectionStringBuilder();
-        //stringBuilder.DataSource = "ZLO\\ZLO";//servername
-        //stringBuilder.InitialCatalog = "DotNetTrainingBatch4";//database name
-        //stringBuilder.UserID = "sa";
-        //stringBuilder.Password = "015427";
-        //SqlConnection connection = new SqlConnection(stringBuilder.ConnectionString);
-        SqlConnection connection = new SqlConnection(_stringBuilder.ConnectionString);
+            //SqlConnectionStringBuilder stringBuilder = new SqlConnectionStringBuilder();
+            //stringBuilder.DataSource = "ZLO\\ZLO";//servername
+            //stringBuilder.InitialCatalog = "DotNetTrainingBatch4";//database name
+            //stringBuilder.UserID = "sa";
+            //stringBuilder.Password = "015427";
+            //SqlConnection connection = new SqlConnection(stringBuilder.ConnectionString);
+            SqlConnection connection = new SqlConnection(_stringBuilder.ConnectionString);
 
             connection.Open();
-            String query = "select * from Tbl_Blog";
+            string query = "select * from Tbl_Blog";
             SqlCommand cmd = new SqlCommand(query, connection);
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
@@ -51,7 +51,7 @@ namespace DotNetTrainingBatch4.ConsoleApp
             }
         }
 
-        public void Creat(string title,string author,string content)
+        public void Creat(string title, string author, string content)
         {
             SqlConnection connection = new SqlConnection(_stringBuilder.ConnectionString);
             connection.Open();
@@ -64,7 +64,7 @@ namespace DotNetTrainingBatch4.ConsoleApp
            (@BlogTitle,
            @BlogAuthor,
            @BlogContent)";
-            SqlCommand cmd = new SqlCommand(query,connection);
+            SqlCommand cmd = new SqlCommand(query, connection);
             cmd.Parameters.AddWithValue("@BlogTitle", title);
             cmd.Parameters.AddWithValue("@BlogAuthor", author);
             cmd.Parameters.AddWithValue("@BlogContent", content);
@@ -127,14 +127,14 @@ namespace DotNetTrainingBatch4.ConsoleApp
             SqlConnection connection = new SqlConnection(_stringBuilder.ConnectionString);
 
             connection.Open();
-            String query = "select * from Tbl_Blog where BlogId = @BlogId";
+            string query = "select * from Tbl_Blog where BlogId = @BlogId";
             SqlCommand cmd = new SqlCommand(query, connection);
             cmd.Parameters.AddWithValue("@BlogId", id);
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             adapter.Fill(dt);
             connection.Close();
-            if(dt.Rows.Count == 0)
+            if (dt.Rows.Count == 0)
             {
                 Console.WriteLine("No Data Found! " + id);
                 return;
@@ -146,14 +146,14 @@ namespace DotNetTrainingBatch4.ConsoleApp
             //datatabel => datarow
             //datarow =>  datacolumn
 
-            
-                Console.WriteLine("Blog ID => " + dr["BlogId"]);
-                Console.WriteLine("Blog Title => " + dr["BlogTitle"]);
-                Console.WriteLine("Blog Author => " + dr["BlogAuthor"]);
-                Console.WriteLine("Blog Content => " + dr["BlogContent"]);
-                Console.WriteLine("-------------------------------------------");
 
-            
+            Console.WriteLine("Blog ID => " + dr["BlogId"]);
+            Console.WriteLine("Blog Title => " + dr["BlogTitle"]);
+            Console.WriteLine("Blog Author => " + dr["BlogAuthor"]);
+            Console.WriteLine("Blog Content => " + dr["BlogContent"]);
+            Console.WriteLine("-------------------------------------------");
+
+
         }
     }
 }

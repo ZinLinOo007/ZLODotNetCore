@@ -1,3 +1,9 @@
+
+https://www.entityframeworktutorial.net/efcore/create-model-for-existing-database-in-ef-core.aspx
+
+Scaffold-DbContext "Server=ZLO\ZLO;Database=DotNetTrainingBatch4;User Id = sa;Password = 015427;TrustServerCertificate = true; Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Context DotNetTrainingBatch4AppDbContext
+
+
 UI + Business Logic	+ Data Access + Db
 
 Mobile , Web  => API => Database
@@ -10,5 +16,10 @@ ZLODotNetCore
 
 2024-04-09 Console App
 2024-04-10 Ado.Net CRUD
-2024-04-12 Dapper CRUD
-EFCore
+
+2024-04-22 Dapper CRUD
+2024-04-23 EFCore CRUD
+
+2 Type of EFCore
+Code First 
+Database First

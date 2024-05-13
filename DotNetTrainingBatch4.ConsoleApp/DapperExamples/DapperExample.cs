@@ -6,8 +6,10 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ZLODotNetCore.ConsoleApp.Dtos;
+using ZLODotNetCore.ConsoleApp.Services;
 
-namespace ZLODotNetCore.ConsoleApp
+namespace ZLODotNetCore.ConsoleApp.DapperExamples
 {
     internal class DapperExample
     {
@@ -25,10 +27,10 @@ namespace ZLODotNetCore.ConsoleApp
 
         private void Read()
         {
-           using IDbConnection db = new SqlConnection(ConnectionString.SqlConnectionStringBuilder.ConnectionString);
-           List<BlogDto> lst =  db.Query<BlogDto>("select * from  Tbl_BLog").ToList();
-          foreach (BlogDto item in lst)
-          {
+            using IDbConnection db = new SqlConnection(ConnectionString.SqlConnectionStringBuilder.ConnectionString);
+            List<BlogDto> lst = db.Query<BlogDto>("select * from  Tbl_BLog").ToList();
+            foreach (BlogDto item in lst)
+            {
                 Console.WriteLine(item.BlogTitle);
                 Console.WriteLine(item.BlogAuthor);
                 Console.WriteLine(item.BlogContent);
@@ -42,7 +44,7 @@ namespace ZLODotNetCore.ConsoleApp
         {
             using IDbConnection db = new SqlConnection(ConnectionString.SqlConnectionStringBuilder.ConnectionString);
             var item = db.Query<BlogDto>("select  * from Tbl_Blog where BlogId = @BlogId ", new BlogDto { BlogId = id }).FirstOrDefault();
-            if(item != null)
+            if (item != null)
             {
                 Console.WriteLine(item.BlogTitle);
                 Console.WriteLine(item.BlogAuthor);
@@ -56,13 +58,13 @@ namespace ZLODotNetCore.ConsoleApp
             }
         }
 
-        private void Create (string title, string author ,string content)
+        private void Create(string title, string author, string content)
         {
             var item = new BlogDto
             {
-                 BlogTitle = title, 
-                 BlogAuthor = author,
-                 BlogContent = content
+                BlogTitle = title,
+                BlogAuthor = author,
+                BlogContent = content
             };
             string query = @"
            INSERT INTO [dbo].[Tbl_Blog]
@@ -73,14 +75,14 @@ namespace ZLODotNetCore.ConsoleApp
            (@BlogTitle,
            @BlogAuthor,
            @BlogContent)";
-            using IDbConnection db = new SqlConnection(ConnectionString.SqlConnectionStringBuilder.ConnectionString); 
-           int result =  db.Execute(query,item);
-           string message = result > 0 ? "Saving Successful!" : "Saving Fail!";
-           Console.WriteLine(message);
+            using IDbConnection db = new SqlConnection(ConnectionString.SqlConnectionStringBuilder.ConnectionString);
+            int result = db.Execute(query, item);
+            string message = result > 0 ? "Saving Successful!" : "Saving Fail!";
+            Console.WriteLine(message);
 
         }
 
-        private void Update (int id, string title, string author, string content)
+        private void Update(int id, string title, string author, string content)
         {
             var item = new BlogDto
             {
@@ -96,14 +98,14 @@ namespace ZLODotNetCore.ConsoleApp
              ,[BlogAuthor] = @BlogAuthor
              ,[BlogContent] = @BlogContent
              WHERE  BlogId = @BlogId";
-            IDbConnection db = new SqlConnection (ConnectionString.SqlConnectionStringBuilder.ConnectionString);
+            IDbConnection db = new SqlConnection(ConnectionString.SqlConnectionStringBuilder.ConnectionString);
             int result = db.Execute(query, item);
             string message = result > 0 ? "Updating Successful!" : "Saving Fail!";
             Console.WriteLine(message);
 
         }
 
-        private void Delete (int id)
+        private void Delete(int id)
         {
             var item = new BlogDto
             {
@@ -114,7 +116,7 @@ namespace ZLODotNetCore.ConsoleApp
              DELETE FROM [dbo].[Tbl_Blog]
             WHERE  BlogId = @BlogId";
 
-            IDbConnection db = new SqlConnection (ConnectionString.SqlConnectionStringBuilder.ConnectionString);
+            IDbConnection db = new SqlConnection(ConnectionString.SqlConnectionStringBuilder.ConnectionString);
             int result = db.Execute(query, item);
             string message = result > 0 ? "Deleting Successful!" : "Deleting Fail!";
             Console.WriteLine(message);
