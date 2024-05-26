@@ -20,6 +20,8 @@ ZLODotNetCore
 2024-04-22 Dapper CRUD
 2024-04-23 EFCore CRUD
 
+ASP .Net Core Web API
+
 2 Type of EFCore
 Code First 
 Database First
