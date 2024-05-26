@@ -14,13 +14,16 @@ ZLODotNetCore
 >ZLODotNetCore.ConsoleApp
 >ZLODotNetCore.RestApi
 
+2024-04-08 Introduction
 2024-04-09 Console App
 2024-04-10 Ado.Net CRUD
 
 2024-04-22 Dapper CRUD
 2024-04-23 EFCore CRUD
+2024-04-24 WebAPI EFCore CRUD
 
-ASP .Net Core Web API
+2024-04-29
+
 
 2 Type of EFCore
 Code First 
