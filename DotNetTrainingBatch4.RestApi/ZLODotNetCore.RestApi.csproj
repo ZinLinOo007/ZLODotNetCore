@@ -16,4 +16,8 @@
 
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ZLODotNetCore.ShareProject\ZLODotNetCore.ShareProject.csproj" />
+  </ItemGroup>
+
 </Project>

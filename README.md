@@ -24,7 +24,7 @@ ZLODotNetCore
 
 2024-04-29 WebAPI Dapper CRUD
 2024-04-30 WebAPI ADO.Net CRUD
-2024-05-01
+2024-05-01 Service
 
 
 2 Type of EFCore
